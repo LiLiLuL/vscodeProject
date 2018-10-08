@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/my.css" rel="stylesheet">
+    <title>little comment</title>
+</head>
+<body>
+    <h1>我的留言本</h1>
+    <div class="container">
+       
+    <form class="form-horizontal">
+        <div class="form-group">
+          <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="inputName" name="name" placeholder="name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="col-sm-2 control-label">Comments</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" name="comments" id="inputComments" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="button"  id="submit" class="btn btn-success">submit</button>
+          </div>
+        </div>
+        <div class="alert alert-success" role="alert" id="form-input-success">
+            <a href="#" class="alert-link">您的评论已提交！</a>
+        </div>
+        <div class="alert alert-danger" role="alert" id="form-input-wrong">
+            <a href="#" class="alert-link">提交失败，请联系管理员！</a>
+        </div>
+      </form>
+      <div  id="allcomments"></div>
+      <nav class="navigation">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous" class="previous-btn">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <% for(var i=1;i<=pageamount;i++){%>
+            <li class="pagination-button " datapage="<%=i %>"><a href="#"><%=i%></a></li>
+            <%}%>
+            <li>
+              <a href="#" aria-label="Next" class="next-btn">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      <div class="clear"></div>
+      
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/component/ajax.js"></script>
+    <script  type="text/template" id="list">
+        <div class="list-group">
+                <a href="#" class="list-group-item ">
+                  <h4 class="list-group-item-heading">{{=name}} </h4>
+                  <p class="list-group-item-text">评论：{{=comments}}</p>
+                  <p class="date">{{=date}} </p>
+                  <p class="delete" data-id={{=id}}>delete</p>
+                </a>
+        </div>
+    </script>
+    
+</body>
+</html>

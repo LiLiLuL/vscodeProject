@@ -1,0 +1,240 @@
+body{
+    background: rgba(204, 204, 204, 0.48);
+    color:rgb(53, 49, 49);
+}
+a{
+    color:rgb(53, 49, 49);
+}
+.logo{
+    align-items: center;
+    display: flex;
+    background: rgba(204, 204, 204, 0.48)
+}
+.logo img{
+    width:48px;
+    height:48px;
+
+}
+.logo span{
+    font-size:24px;
+    padding-left:5px;
+}
+.footer{
+    text-align: center;
+}
+.ant-menu-horizontal>.ant-menu-item>a, .ant-menu-horizontal>.ant-menu-submenu>a {
+    display: inline-block !important;
+}
+
+.container{
+    padding-top:10px;
+    background: rgba(204, 204, 204, 0.48);
+}
+.leftContainer{
+    float:left;
+    width:500px; 
+    height:100%;
+}
+.carousel{
+    width:500px;
+    overflow:hidden;
+    margin-top:15px;
+}
+.carousel img{
+    height:400px;
+    width:500px;
+}
+
+.imageBlock{
+    display: inline-block;
+    border:2px;
+    margin-right:5px;
+}
+.ant-menu{
+    background:none ! important;
+}
+.center{
+    width:500px;
+}
+.clear{
+    clear:both;
+}
+.bottom{
+    width:100%;
+    height:300px;
+    background: #b6e9f8;
+    position: relative;
+}
+.bottom img{
+    width:100%;
+    height:300px;
+}
+.lefttop{
+    height:200px;
+    margin:auto;
+    position:absolute;
+    margin-top: -110px;
+    left:300px;
+    z-index: 1;
+}
+.lefttop span{
+    display:inline-block;
+    width:200px;
+    height:200px;
+    margin-right:20px;
+    background:#fae0e0;
+    position: relative;
+}
+
+.suggestion{
+    width:100%;
+    height:auto;
+}
+.suggestion span{
+    display: inline-block;
+    height: 30px;
+    width:150px;
+    margin:5px;
+    text-align: center;
+    border-radius: 5px;
+    border:1px solid #ec525f;
+    background: rgb(245, 190, 190);
+    padding-top: 3px;
+}
+.suggestion span:hover,
+.suggestion span:focus,
+.suggestion span:active{
+    background:#daf7f4;
+}
+.tabsetting{
+    margin-top:90px ! important;
+}
+.dividersetting{
+    color:rgb(90, 88, 88);
+    font-size: 10px;
+    height: 2px;
+}
+div.topNewsList .ant-card-body{
+    padding: 0px;
+}
+.ant-tabs{
+    padding:none;
+}
+.ant-card{
+    background:none ! important;
+}
+.ant-menu{
+    background:none;
+}
+.tabsnews {
+    padding-left: 10px;
+    width: 460px;
+    float: left;
+}
+
+.tabsproduct {
+    width: 350px;
+    padding-left: 10px;
+    float: left;
+}
+.tabsnews li {
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 417px;
+    float: left;
+    text-overflow: ellipsis;
+}
+
+.tabsproduct li {
+    height: 27px;
+    line-height: 27px;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 257px;
+    text-overflow: ellipsis;
+}
+
+.productlinks-item{
+    margin:2px;
+    border-bottom: 1px  solid #ffffff ;
+
+}
+.productlinks-item:last-child{
+    border-bottom: none;
+}
+
+
+.productlinks-item strong{
+    display: flex;
+    width: 100px;
+    height: 80px;
+    text-align: center;
+    float: left;
+    align-items: center;
+    justify-content: center;
+}
+.productlinks-item a{
+    margin-right: 3px;
+    color: gray;
+    font-style: italic;
+    font-family: cursive;
+}
+.productlinks-item a:focus,
+.productlinks-item a:hover,
+.productlinks-item a:active{
+    color:#1890ff;
+    text-decoration: underline;
+}
+.item-game strong{
+    height:100px;
+}
+.item-recommend strong{
+    height:90px;
+}
+.item-sns{
+    height:80px;
+}
+.fixheader{
+    position:fixed;
+    width:100%;
+    background:rgba(255,255,255,0.6) ! important;
+}
+.ant-layout-content{
+    margin-top:64px;
+}
+.ant-menu-horizontal{
+    line-height:62px ! important;
+    font-size: 16px;
+}
+
+.ant-layout{
+    background: #f3ccd526 ! important;
+}
+.container{
+    background: #f5cacd24;
+}
+a{
+    color:#302c2c ! important;
+}
+.ant-menu-horizontal > .ant-menu-item-selected > a {
+    color: #fff ! important;;
+}
+.ant-menu-horizontal>.ant-menu-item:hover>a{
+    color:#fff ! important;
+}
+.ant-menu-horizontal>.ant-menu-item-active{
+    background:  #f9390b54;
+}
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+    border-bottom: 2px solid #f75c6be3 ! important;;
+    color: #fff ! important;;
+    background: #f9390b54;
+    background-color: #f9390b54 ! important;
+}
+.logo{
+    background:none;
+}

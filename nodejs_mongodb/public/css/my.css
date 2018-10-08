@@ -1,0 +1,52 @@
+#form-input-wrong,#form-input-success{
+    display: none;
+}
+.list-group-item{
+    border:none;
+    border-bottom: 1px solid gray;
+    color:#000;
+    width:80%;
+}
+
+.date{
+    text-align: right;
+}
+.navigation{
+    margin-top:10px;
+    float: right;
+    margin-right: 200px;
+}
+.pagination{
+    flex-wrap: wrap;
+}
+.pagination li{
+    width: 30px;
+    height: 26px;
+    border: 1px solid #a8b3bf61;
+    text-align: center;
+}
+.pagination li a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+
+.pagination li>a:hover,
+.pagination li>a:focus,
+.pagination li>a:active{
+    color:inherit;
+    text-decoration: none;
+}
+.active{
+    background:rgb(10, 192, 247);
+    color:#fff;
+}
+.pagination li:hover,
+.pagination li:focus,
+.pagination li:active{
+    background:rgb(10, 192, 247);
+    color:#fff;
+}
+.clear{
+    clear:both;
+}
