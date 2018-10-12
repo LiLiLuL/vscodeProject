@@ -1,0 +1,123 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "art-template",
+        "scope": null,
+        "escapedName": "art-template",
+        "name": "art-template",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "C:\\Users\\xiaoqing_chen\\Desktop\\vscodeProject\\requireTest"
+    ]
+  ],
+  "_from": "art-template@latest",
+  "_hasShrinkwrap": false,
+  "_id": "art-template@4.13.1",
+  "_inCache": true,
+  "_location": "/art-template",
+  "_nodeVersion": "9.11.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/art-template_4.13.1_1537867519220_0.9948584480817599"
+  },
+  "_npmUser": {
+    "name": "aui",
+    "email": "1987.tangbin@gmail.com"
+  },
+  "_npmVersion": "6.4.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "art-template",
+    "scope": null,
+    "escapedName": "art-template",
+    "name": "art-template",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npmjs.org/art-template/-/art-template-4.13.1.tgz",
+  "_shasum": "b96249ea0bc2297a3dc88a69ed85f896a75ea86b",
+  "_shrinkwrap": null,
+  "_spec": "art-template",
+  "_where": "C:\\Users\\xiaoqing_chen\\Desktop\\vscodeProject\\requireTest",
+  "author": {
+    "name": "tangbin",
+    "email": "sugarpie.tang@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/aui/art-template/issues"
+  },
+  "dependencies": {
+    "acorn": "^5.0.3",
+    "escodegen": "^1.8.1",
+    "estraverse": "^4.2.0",
+    "html-minifier": "^3.4.3",
+    "is-keyword-js": "^1.0.3",
+    "js-tokens": "^3.0.1",
+    "merge-source-map": "^1.0.3",
+    "source-map": "^0.5.6"
+  },
+  "description": "JavaScript Template Engine",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "coveralls": "^2.13.0",
+    "eslint": "^3.19.0",
+    "eslint-loader": "^1.7.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "node-noop": "^1.0.0",
+    "prettier": "^1.14.2",
+    "webpack": "^3.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-EfUHvgtsgboF5MJuCrT8pWJezDefdh8o5LMq/IWsZaZebGJ9KG6pNgZgIX0gtbclVURWGG1PEtZ8iRRXzTvXTg==",
+    "shasum": "b96249ea0bc2297a3dc88a69ed85f896a75ea86b",
+    "tarball": "https://registry.npmjs.org/art-template/-/art-template-4.13.1.tgz",
+    "fileCount": 28,
+    "unpackedSize": 80523,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJbqf7/CRA9TVsSAnZWagAA1+kP/j4JbpzazHTyEoG+c4Vz\nkqf1pGdtYAe7Ep6f6vpBzX9m5RU7D+eBm/IqF7reMuP3lYB2OUc0Az2A+8cd\nkaqIow1tyPKqgLn2kEwrQFN2eqnBWVMu2Mx7gK1oiuTZ3Rw6h2rKJM8TbbWr\nmXJ4RCYtSCBJ8WhXplkY2NbGumns2qHjgDywzoZbrs5T+voWK29h9peLaya0\n0cyhU1OqNzwiOssfX8iCqim5kFYFbtlMJ3JtFied2UhmUZgQGN97vOKqXyWI\nObQb5jJTdH5RDmxml4kiZn6tDhRr/ODFXAjM7XqzsnrzmredcUpaU1VtMNog\nU52qJDZOOX5hS7IWt8hwjrXGu9kH/q1IhUHlHCYF2SdaH8U98vz3RYsJQtIk\nWOjhl1q7v21imvkH/zky9vTbsBQqu9GyiPOKIwDSNcO4yhcc386s0zq15Y5L\ne5O1C9bAHNhdWkSJ38vyKDjDS6sACjMjiT6GquHa5SUiHl8V9gFEvnO5VGiG\nK1qAZsLlWZF/KP+EXBaQAQ7Clf1w6yv6LTweMDbhbbvGsZcsxjbyefrAVMQ5\nbDB2HJN4wJBh69wIwQmuPX9A3RTQn08ShLGSMhURcIepdGio022OqrkOdST/\niV6pwgguV1l3rYlHQsPZNOZuNKVheJvmbBaFfJRLybw7YQ0Xl0pcP2+ILlPs\nt53y\r\n=y0oJ\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "engines": {
+    "node": ">= 1.0.0"
+  },
+  "gitHead": "b6ebefe947c7998eac883574d079093be30bb81f",
+  "homepage": "http://aui.github.com/art-template/",
+  "keywords": [
+    "template"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "aui",
+      "email": "1987.tangbin@gmail.com"
+    }
+  ],
+  "name": "art-template",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aui/art-template.git"
+  },
+  "scripts": {
+    "build": "npm run build-lib && npm run build-web",
+    "build-lib": "rm -rf lib && babel src --out-dir lib",
+    "build-web": "export NODE_ENV=production && webpack",
+    "coverage": "cat ./coverage/lcov.info | coveralls",
+    "dev": "babel src --watch --out-dir lib",
+    "test": "export NODE_ENV=production && istanbul cover node_modules/mocha/bin/_mocha -- --ui exports --colors 'test/**/*.js'"
+  },
+  "typings": "index.d.ts",
+  "version": "4.13.1"
+}

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="../static/plugs/element-ui/lib/theme-chalk/index.css" />
+<div id="work">
+        <el-steps :space="200" :active="1" finish-status="success">
+                <el-step title="已完成"></el-step>
+                <el-step title="进行中"></el-step>
+                <el-step title="步骤 3"></el-step>
+        </el-steps>
+        <div class="block">
+                <span class="demonstration">默认 Hover 指示器触发</span>
+                <el-carousel height="150px">
+                  <el-carousel-item v-for="item in 4" :key="item">
+                    <h3>{{ item }}</h3>
+                  </el-carousel-item>
+                </el-carousel>
+        </div>
+</div>
+<script type="text/javascript">
+    require(['../static/js/work/work.js'], function (module) {
+        module.init();
+    })
+  </script>
