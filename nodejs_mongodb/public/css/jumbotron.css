@@ -1,0 +1,69 @@
+.mynav>div.form-group{
+    display: inline-block;
+    margin-bottom: 0rem;
+}
+.navbar{
+    /* background: rgb(34, 34, 34); */
+    background: rgb(27, 70, 13);
+    padding: 0px;
+}
+.navbar-brand{
+    color:rgb(157, 157, 157);
+}
+.navbar-brand:focus,
+.navbar-brand:hover,
+.navbar-brand:active{
+    color:#fff;
+}
+
+.navbar-nav li a{
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    color:rgb(157, 157, 157);
+    text-align: center;
+    width:100%;
+    padding-top: 6px;
+}
+.navbar-nav li a:focus,
+.navbar-nav li a:hover,
+.navbar-nav li a:active{
+    color:#fff;
+    background: #000;
+    border-bottom:7px solid  rgb(97, 91, 91);
+}
+.navbar-nav li a{
+    text-decoration: none;
+}
+.navbar-nav li :focus,
+.navbar-nav li :hover,
+.navbar-nav li :active{
+  background: #000;
+}
+
+.navbar-nav{
+  flex-direction:inherit;
+  height: 48px;
+}
+.btn-default:focus,
+.btn-default:hover,
+.btn-default:active{
+color:#fff;
+}
+
+#form-input-wrong, #form-input-success {
+    display: none;
+}
+.done{
+    color:rgb(157, 157, 157);
+    font-size: 1.25rem;
+    line-height: inherit;
+}
+
+.active{
+    background: #000;
+}

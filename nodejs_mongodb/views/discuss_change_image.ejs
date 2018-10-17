@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>更改头像</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jumbotron.css">
+</head>
+<body>
+     <% include discuss_header.ejs%>
+    <div class="container">
+        <div class="row col-lg-6">
+            <!-- 
+                使用formidable来对form表单上传文件的时候enctype="multipart/form-data" 是至关重要的
+             -->
+            <form action="/dochangeimage" method="post" enctype="multipart/form-data"> 
+                    <div class="form-group">
+                      <label for="upload-image">更改头像</label>
+                      <input type="file" class="form-control" id="upload-image" name="uploadimage">
+                    </div>
+                    <button type="submit">上传</button>
+            </form>
+        </div>
+    </div>   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/discuss/button.js"></script>
+</body>
+</html>

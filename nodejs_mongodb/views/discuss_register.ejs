@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jumbotron.css">
+</head>
+<body>
+    <% include discuss_header.ejs%>
+    <div class="container">
+    <div class="row col-lg-6">
+        <form>
+                <div class="form-group">
+                  <label for="InputUsername">Username</label>
+                  <input type="text" class="form-control" id="InputUsername" placeholder="username">
+                </div>
+                <div class="form-group">
+                  <label for="InputPassword">Password</label>
+                  <input type="password" class="form-control" id="InputPassword" placeholder="password">
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Agree the license
+                  </label>
+                </div>
+                <button  type="button" class="btn btn-default" id="btn-register">Register</button>
+                <div class="alert alert-success" role="alert" id="form-input-success">
+                     <a href="#" class="alert-link">注册成功,即将跳转至首页</a>
+                </div>
+                <div class="alert alert-danger" role="alert" id="form-input-wrong">
+                        <a href="#" class="alert-link">注册失败，用户名被占用，请更改</a>
+                </div>
+              </form>
+        </div>
+    </div>   
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/discuss/button.js"></script>
+</body>
+</html>
