@@ -15,15 +15,29 @@ app.use("/avatar",express.static("./avatar"));
 //路由表
 app.get("/",router.showIndex);
 
+//注册
 app.get("/register",router.showRegister);
 app.post("/doregister",router.showDoRegister);
 
+//登录
 app.get("/login",router.showLogin);
 app.post("/dologin",router.doLogin);
 
+//头像剪裁
 app.get("/changeimage",router.showChangeImage);
 app.post("/dochangeimage",router.doChangeImage);
 app.get("/imagecut",router.showImageCut);
 app.get("/doimagecut",router.doImageCut);
+
+//发表说说
+app.post("/dopublish",router.doPublish);
+
+//列出所有的说说
+app.get("/allmoments",router.getAllMoments);
+
+//列出用户信息
+app.get("/userinfo",router.getUserInfo);
+//得到说说的总数量
+app.get("/allcount",router.getAllCount);
 
 app.listen(4000);

@@ -19,45 +19,126 @@
   <body>
       <% include discuss_header.ejs %>
 
+      <%if(!login){%>
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>
-          <a href="/changeimage"><img src="/avatar/<%=avatar%>" alt=""/></a>
-          Hello, world!</h1>
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <div class="row">
+          <div class="col-lg-6">
+
+         
+        <h1>Welcome!!</h1>
+        <h2>This is a funny website for your class</h2>
+        <p>if you want to join the website,you have to sign up OR you have had a acount,you can login directly.</p>
+        <!-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p> -->
+      </div>
+      <div class="col-lg-6 login-box">
+        <h1>LOGIN </h1>
+          <form class="login-form">
+              <div class="form-group">
+                <label for="InputUsername">Username</label>
+                <input type="text" class="form-control" id="InputUsername" placeholder="username">
+              </div>
+              <div class="form-group">
+                <label for="InputPassword">Password</label>
+                <input type="password" class="form-control" id="InputPassword" placeholder="password">
+              </div>
+              <div class="login-button">
+              <button  type="button" class="btn btn-success" id="btn-login">Login</button>
+              <button  type="button" class="btn btn-default" id="btn-register">Register</button>
+              <p class="forget-password"><a href="#" class="alert-link">forget the password?</a></p>
+            </div>
+              <div class="alert alert-success" role="alert" id="form-input-success">
+                   <a href="#" class="alert-link">登录成功,即将跳转至首页</a>
+              </div>
+              <div class="alert alert-danger" role="alert" id="form-input-wrong">
+                      <a href="#" class="alert-link">未注册，请先注册</a>
+              </div>
+            
+            </form>
+        </div>
+    </div>
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+    <%}else{%>
+      <div class="jumbotron">
+          <div class="container">
+            <div class="row">
+            <div class="col-lg-8">
+            <h1>
+              <a href="/changeimage"><img src="/avatar/<%=avatar%>" alt=""/></a>
+                <%=username%>
+            </h1>
+           <form>
+            <div class="moments">
+              <textarea id="content" name="content" cols="30" rows="10"></textarea>
+              <button  type="button" class="btn btn-success" id="btn-publish">Publish</button>
+            </div>
+          </form>
+          <div class="row" id="allmoments"></div>
+          <nav class="navigation">
+              <ul class="pagination">
+                <li>
+                  <a href="#" aria-label="Previous" class="previous-btn">
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <ul class="paginationlist">
+        
+                </ul>
+                <li>
+                  <a href="#" aria-label="Next" class="next-btn">
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>        
         </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+          <div class="col-lg-4">
+              <h1>用户列表</h1>
+              <ul class="userlist" id="userlist">
+             
+              </ul>
+           
+         </div>
+
+          </div>
+          </div>
         </div>
-      </div>
+        <%}%>
 
-      <hr>
 
+        <div class="container">
+           
+        
       <footer>
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2018 Chenxq, Practice.</p>
       </footer>
     </div> <!-- /container -->
+    <script type="text/template" id="allcontents">
+      <div class="col-md-4">
+        <h2> <img width="40" height="40" src="/avatar/{{=avatar}}" alt=""/>{{=username}}：</h2>
+        <p class="show-content">{{=content}} </p>
+        <p>{{=datetime}}</p>
+        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+      </div>
+    </script>
+    <script type="text/template" id="alluser">
+      <li>
+      <div class="usermark">
+          <p  class=""><img src="/avatar/" alt=""/></p>
 
+          <div><span></span>
+          <p> 格言：努力着我该努力的，享受着我该享受的</p>
+        </div>
+       </div>
+      </li>
+    </script>
     <script src="js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/discuss/button.js"></script>
+    
   </body>
 </html>

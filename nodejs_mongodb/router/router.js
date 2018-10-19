@@ -8,24 +8,29 @@ let gm=require('gm');
 exports.showIndex=(req,res,next)=>{
     //检索数据库，查找头像
     if(req.session.login=="1"){
-        db.find('discuss',{"username":req.session.username},(err,result)=>{
-            let avatar=result[0].avatar||"default.jpg";
-            res.render("discuss_index",{
-                "login":req.session.login=="1"?true:false,
-                "username":req.session.login=="1"?req.session.username:"",
-                "active":"index",
-                "avatar":avatar
-            })
-        })
-
+        var  username=req.session.username;
     }else{
-        res.render("discuss_index",{
-            "login":req.session.login=="1"?true:false,
-            "username":req.session.login=="1"?req.session.username:"",
-            "active":"index",
-            "avatar":"default.jpg"
-        })
+        var username="";
+        var login=false;
     }
+    db.find('discuss',{"username":req.session.username},(err,result)=>{
+        if(result.length==0){
+            var avatar="default.jpg";
+        }else{
+            var avatar=result[0].avatar;
+        } 
+            db.find('discuss',{},{ "sort":{"datetime":-1}},(err,results)=>{
+               
+                res.render("discuss_index",{
+                    "login":req.session.login=="1"?true:false,
+                    "username":req.session.login=="1"?req.session.username:"",
+                    "active":"index",
+                    "avatar":avatar,
+                    "moments":results
+                })
+            });
+          
+        })
     console.log(req.session.login)
    
 }
@@ -196,4 +201,58 @@ exports.doImageCut=(req,res,next)=>{
     
     });
 
+}
+//发表说说
+exports.doPublish=(req,res,next)=>{
+    if(req.session.login!="1"){
+        res.end("此页面需要登陆才行");
+        return;
+    }
+    let form=new formidable.IncomingForm();
+    form.parse(req,(err,fields,files)=>{
+      let content=fields.content;
+      db.insertOne("content",{
+          "username":req.session.username,
+          "datetime":new Date(),
+          "content":content
+    },(err,result)=>{
+        if(err){
+            
+            res.send('-3');
+            return;
+        }
+        res.send("1");
+    })
+    })
+}
+
+//列出所有的说说
+exports.getAllMoments=(req,res,next)=>{
+    var page=req.query.page;
+    db.find("content",{},{"pageamount":10,"page":page,"sort":{"datetime":-1}},(err,result)=>{
+        res.json(result);
+    });
+}
+//得到用户信息
+exports.getUserInfo=(req,res,next)=>{
+    let username=req.query.username;
+    db.find('discuss',{"username":username},(err,result)=>{
+        let obj={
+            "username":result[0].username,
+            "avatar":result[0].avatar,
+            "_id":result[0]._id
+        }
+        res.json(obj);
+
+    })
+}
+
+//得到所有的说说数据
+exports.getAllCount=(req,res,next)=>{
+    db.getAllCount('content',function(count){
+        // console.log(typeof(count));
+        // let n=count;
+        // n= n.toString();
+        res.send(count.toString());
+    })
 }

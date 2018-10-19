@@ -4,9 +4,10 @@
             <div class="navbar-header">
               <ul class="nav navbar-nav">
                  <li <%if(active=="index"){%> class="active" <%}%> > <a  href="/">班级说说</a></li>
-                 <li ><a href="#">全部说说 </a></li>
-                 <li><a href="#">我的说说</a></li>
-                 <li><a href="#">全部成员</a></li>
+                 <li <%if(active=="allmoments"){%> class="active" <%}%> > <a  href="/allmoments">全部说说</a></li>
+                 <li <%if(active=="personalmoments"){%> class="active" <%}%> > <a  href="/mymoments">我的说说</a></li>
+                 <li <%if(active=="allusers"){%> class="active" <%}%> > <a  href="/allusers">全部成员</a></li>
+  
            </ul>
             </div>
           

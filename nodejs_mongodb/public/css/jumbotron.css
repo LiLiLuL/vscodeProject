@@ -1,10 +1,13 @@
+li{
+    list-style: none;
+}
 .mynav>div.form-group{
     display: inline-block;
     margin-bottom: 0rem;
 }
 .navbar{
     /* background: rgb(34, 34, 34); */
-    background: rgb(27, 70, 13);
+    background:  #1e676b;
     padding: 0px;
 }
 .navbar-brand{
@@ -33,8 +36,8 @@
 .navbar-nav li a:hover,
 .navbar-nav li a:active{
     color:#fff;
-    background: #000;
-    border-bottom:7px solid  rgb(97, 91, 91);
+    background: #1e833c;
+    border-bottom:7px solid  #1e833c;
 }
 .navbar-nav li a{
     text-decoration: none;
@@ -42,7 +45,7 @@
 .navbar-nav li :focus,
 .navbar-nav li :hover,
 .navbar-nav li :active{
-  background: #000;
+  background: #1e833c;
 }
 
 .navbar-nav{
@@ -65,5 +68,99 @@ color:#fff;
 }
 
 .active{
-    background: #000;
+    background: #1e833c;
+}
+
+.login-box{
+    border-radius: 5px;
+    background: #1e676b;
+    width: 200px;
+    flex: 0 10 30%;
+    margin-left: 70px;
+    height: 400px;
+    color: #fff;
+}
+.login-form{
+    margin-top: 30px;
+}
+.login-box h1{
+    text-align: center;
+    color: #23af9d;
+    margin-top: 16px;
+}
+.login-button{
+    text-align: center;
+}
+.login-button button{
+    width: 90px;
+}
+.forget-password a{
+    color:green;
+    text-decoration: aqua;
+}
+.moments textarea{
+    width:100%;
+}
+.show-content{
+    background: #9fda9ff2;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #888888;
+    padding: 2px;
+    height: 100px;
+    overflow: hidden;
+}
+.userlist img{
+    border-radius: 50%;
+    height: 50px;
+}
+.userlist li{
+    list-style: none;
+}
+.usermark{
+
+}
+.navigation{
+    margin-top:10px;
+    float: right;
+    margin-right: 200px;
+}
+.pagination{
+    flex-wrap: wrap;
+}
+.pagination li{
+    width: 30px;
+    height: 26px;
+    border: 1px solid #a8b3bf61;
+    text-align: center;
+}
+.pagination li a{
+    display: block;
+    width:100%;
+    height:100%;
+}
+
+.pagination li>a:hover,
+.pagination li>a:focus,
+.pagination li>a:active{
+    color:inherit;
+    text-decoration: none;
+}
+.pagination li:hover,
+.pagination li:focus,
+.pagination li:active{
+    background:rgb(10, 192, 247);
+    color:#fff;
+}
+.clear{
+    clear:both;
+}
+.paginationlist{
+    padding-inline-start: 0px;
+}
+#allmoments{
+    height:500px;
+}
+.pageactive{
+    background:rgb(10, 192, 247);
+    color:#fff;
 }

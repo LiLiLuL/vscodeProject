@@ -18,6 +18,29 @@ function _connectDB(callback){
     })
 }
 
+init();
+function init(){
+    _connectDB((err,client)=>{
+        if(err){
+            callback(err,null);
+            return;
+        } 
+        const setconnect=client.db(dbName);
+        setconnect.collection('discuss').createIndex(
+            {"username":1},
+            null,
+            (err,results)=>{
+                if(err){
+                    callback(err,null);
+                    return;
+                }
+
+                console.log("索引建立成功");
+            }
+        )
+    })
+}
+
 //插入一条数据
 exports.insertOne=function(collectionName,json,callback){
     _connectDB((err,client)=>{
