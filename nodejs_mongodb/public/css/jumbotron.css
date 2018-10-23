@@ -121,7 +121,7 @@ color:#fff;
 }
 .navigation{
     margin-top:10px;
-    float: right;
+    /* float: right; */
     margin-right: 200px;
 }
 .pagination{
@@ -132,6 +132,7 @@ color:#fff;
     height: 26px;
     border: 1px solid #a8b3bf61;
     text-align: center;
+    float: left;
 }
 .pagination li a{
     display: block;
@@ -158,9 +159,74 @@ color:#fff;
     padding-inline-start: 0px;
 }
 #allmoments{
-    height:500px;
+    min-height:500px;
 }
 .pageactive{
     background:rgb(10, 192, 247);
+  
+}
+.personal-contents{
+    border-bottom: 1px solid #ccc;
+}
+.head-user{
+   height:100px;
+   padding-top:40px;
+   border-bottom: 2px solid #1e676b;
+}
+.head-img{
+   
+}
+.alluser{
+    display: flex;
+}
+.alluser a{
+    display: flex;
+    width:100%;
+    height:100%;
+    align-items: center;
+}
+.alluser a p{
+    float: left;
+}
+.alluser-img{
+
+}
+.alluser-name{
+    margin-left: 20px;
+    font-style: normal;
+    color: #000;
+    font-size: 20px;
+}
+.jumbotron{
+    background-color:#fff;
+}
+.alluser  a:focus,
+.alluser  a:hover,
+.alluser  a:active{
+    background: #8fc7bf;
+}
+.alluserlist{
+    width: 120px;
+    text-align: center;
+    float: left;
+}
+.alluserlist img{
+    height:100px;
+    weidth:100px;
+}
+.all{
+    margin-top:10px;
+}
+.icon{
+    height:18px;
+}
+.done a{
+    color: rgb(157, 157, 157);
+    text-decoration: none;
+    margin-left:12px;
+    font-size: 1.25rem;
+}
+.done a:hover,
+.done a:focus{
     color:#fff;
 }

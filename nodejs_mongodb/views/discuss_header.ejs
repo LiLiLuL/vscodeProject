@@ -5,8 +5,10 @@
               <ul class="nav navbar-nav">
                  <li <%if(active=="index"){%> class="active" <%}%> > <a  href="/">班级说说</a></li>
                  <li <%if(active=="allmoments"){%> class="active" <%}%> > <a  href="/allmoments">全部说说</a></li>
-                 <li <%if(active=="personalmoments"){%> class="active" <%}%> > <a  href="/mymoments">我的说说</a></li>
-                 <li <%if(active=="allusers"){%> class="active" <%}%> > <a  href="/allusers">全部成员</a></li>
+                 <% if(login){%>
+                 <li <%if(active=="personalmoments"){%> class="active" <%}%> > <a  href="/mymoments/<%=username%>">我的说说</a></li>
+                 <%}%>
+                 <li <%if(active=="allusers"){%> class="active" <%}%> > <a  href="/alluser">全部成员</a></li>
   
            </ul>
             </div>
@@ -22,7 +24,8 @@
                 <% if(login){%>
                   <div class="done">
                   <span>欢迎您<%=username%></span>
-                 <a>个人中心</a>
+                  <a href="/usercenter"> 个人中心<img class="icon" src="/avatar/usercenter.png"/></a>
+                  <a href="/exist"> 退出 <img class="icon" src="/avatar/exist.png" /> </a>
                 </div>
                 <% }else{%>
                   <a href="/login"> <input type="button" class="btn btn-success" value="Sign in" /></a>
@@ -33,3 +36,4 @@
           </div>
         </nav>
     </div>
+   

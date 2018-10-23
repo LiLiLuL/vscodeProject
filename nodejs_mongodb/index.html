@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>我是index页面</h1>
+   <input type="text" name=""  width="100" id="text" />
+    <input id="question" type="button" value="are you ok?"/>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" >
+      let socket=io();
+   document.getElementById("question").onclick=function(){
+      // socket.emit("question","are you ok?")
+       socket.emit("question",document.getElementById("text").value);
+   }
+    //客户端的soket对象
+    // socket.emit("question","are you ok?");
+    socket.on("answer",msg=>{
+        //   alert("the server said"+" "+msg);
+        console.log(msg);
+    })
+    </script>
+</body>
+</html>

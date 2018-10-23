@@ -40,4 +40,12 @@ app.get("/userinfo",router.getUserInfo);
 //得到说说的总数量
 app.get("/allcount",router.getAllCount);
 
+//得到个人页面
+app.get("/mymoments/:user",router.showPersonal);
+//得到所有成员
+app.get("/alluser",router.showAllUser);
+//进入个人中心设置
+app.get("/usercenter",router.showUserCenter);
+//退出
+app.get("/exist",router.exist);
 app.listen(4000);

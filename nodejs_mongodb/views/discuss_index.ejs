@@ -76,7 +76,6 @@
               <button  type="button" class="btn btn-success" id="btn-publish">Publish</button>
             </div>
           </form>
-          <div class="row" id="allmoments"></div>
           <nav class="navigation">
               <ul class="pagination">
                 <li>
@@ -93,13 +92,23 @@
                   </a>
                 </li>
               </ul>
-            </nav>        
+            </nav>   
+            <div class="row" id="allmoments"></div>     
         </div>
           <div class="col-lg-4">
-              <h1>用户列表</h1>
+              <h1 style="margin-left:30px;">用户列表</h1>
               <ul class="userlist" id="userlist">
-             
+                    <% for(let i=0;i<alluser.length;i++){%>
+                        <li class="alluser">
+                            <a href="/mymoments/<%=alluser[i].username%>">
+                            <p class="alluser-img"><img src="/avatar/<%=alluser[i].avatar%>" /></p>
+                            <p class="alluser-name"><%=alluser[i].username%></p>
+                            </a>
+                          </li>
+                    <%} %>
+                <div class="clear"></div>
               </ul>
+              
            
          </div>
 

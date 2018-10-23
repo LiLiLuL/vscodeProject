@@ -26,7 +26,8 @@ exports.showIndex=(req,res,next)=>{
                     "username":req.session.login=="1"?req.session.username:"",
                     "active":"index",
                     "avatar":avatar,
-                    "moments":results
+                    "moments":results,
+                    "alluser":results
                 })
             });
           
@@ -229,7 +230,7 @@ exports.doPublish=(req,res,next)=>{
 //列出所有的说说
 exports.getAllMoments=(req,res,next)=>{
     var page=req.query.page;
-    db.find("content",{},{"pageamount":10,"page":page,"sort":{"datetime":-1}},(err,result)=>{
+    db.find("content",{},{"pageamount":9,"page":page,"sort":{"datetime":-1}},(err,result)=>{
         res.json(result);
     });
 }
@@ -256,3 +257,65 @@ exports.getAllCount=(req,res,next)=>{
         res.send(count.toString());
     })
 }
+
+//显示用户所有说说
+exports.showPersonal=(req,res,next)=>{
+    let user=req.params["user"];
+    db.find('content',{"username":user},(err,result)=>{
+      db.find("discuss",{"username":user},(err,results)=>{
+        res.render("discuss_personal",{
+            "login":req.session.login=="1"?true:false,
+            "username":req.session.login=="1"?req.session.username:"",
+            "user":user,
+           "active":"personalmoments",
+           "personalcontents":result,
+           "personalavatar":results[0].avatar
+        });
+      })
+       
+    })
+  
+}
+//显示所有的成员列表
+exports.showAllUser=(req,res,next)=>{
+    db.find("discuss",{ },(err,results)=>{
+        res.render("discuss_alluser",{
+           "alluser":results,
+           "active":"allusers",
+           "login":req.session.login=="1"?true:false,
+            "username":req.session.login=="1"?req.session.username:"",
+        });
+      })
+}
+//个人中心
+exports.showUserCenter=(req,res,next)=>{
+    if(req.session.login!="1"){
+        res.send("这个页面需要登陆");
+        return;
+    }
+    let username=req.session.username;
+    db.find('usercenter',{"username":username},(err,result)=>{
+        if(err){
+            res.send("-3");
+            return;
+        }
+        res.render("discuss_usercenter",{
+            "usercenter":result,
+            "login":req.session.login=="1"?true:false,    
+            "active":"usercenter",
+            "username":req.session.login=="1"?req.session.username:"",
+
+        })
+    })
+    
+}
+
+//退出、
+exports.exist=(req,res,next)=>{
+    res.render("discuss_index",{
+        "login":false,
+        "username":"",
+        "active":"index"
+    })
+}
+

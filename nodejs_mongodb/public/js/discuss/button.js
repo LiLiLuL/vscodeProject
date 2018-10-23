@@ -94,42 +94,42 @@ $("#btn").click(function(){
      //清空全部说说中的所有节点
     $("#allmoments").html("");
   $.ajax({
-      "url":'/allmoments?page='+page,
-      "type":"get", 
-      "aysnc":false,
-       "success":function(result){
+      "url":"/allmoments?page="+page,
+      "type":"get",
+      "async":false, 
+     "success":function(result){
         iterator(0);
         function iterator(i){
             if(i==result.length){
                 //在这里做请求完毕的事情
                 return;
             }
-            $.get("/userinfo?username="+result[i].username,result2=>{
-              result[i].avatar=result2.avatar;
-              //组装模板
-              var html=compiled(result[i]);
-              $("#allmoments").append($(html));
-             iterator(i+1);
+            $.ajax({
+                "url":"/userinfo?username="+result[i].username+ "&" + new Date(),
+                "type":"get",
+                "async":false,
+                "success":function(result2){
+                    result[i].avatar=result2.avatar;
+                    //组装模板
+                    var html=compiled(result[i]);
+                    $("#allmoments").append($(html));
+                   iterator(i+1);
+                }
             })
+            // $.get("/userinfo?username="+result[i].username,result2=>{
+            //   result[i].avatar=result2.avatar;
+            //   //组装模板
+            //   var html=compiled(result[i]);
+            //   $("#allmoments").append($(html));
+            //  iterator(i+1);
+            // })
           
-        }
+        };
     }
    
   })
 }
 
-  //用户列表
- 
-//   $.ajax({
-//     url:"/userinfo?username="+result[i].username,
-//     async:false,//同步
-//     type:"get",
-//     success:function(result2){
-//     result[i].avatar=result2.avatar;
-//     iterator(i+1);
-//     var html=compiled(result.r[i]);
-// $("#allmoments").append($(html));
-// })
 
 $.get("/allcount",function(result){
     let amount=parseInt(result);
