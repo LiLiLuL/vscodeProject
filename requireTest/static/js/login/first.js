@@ -1,5 +1,5 @@
 
-define(['Vue','ELEMENT'],function(Vue,ELEMENT){
+define(['vue','ELEMENT'],function(vue,ELEMENT){
     Vue.use(ELEMENT);
    //ELEMENT.install(Vue);
    function init(){

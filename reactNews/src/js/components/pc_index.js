@@ -15,6 +15,8 @@ import Socilty from './page/socilty';
 import Sport  from './page/sport';
 import International from './page/international';
 import Entertrainment from './page/entertrainment';
+import LoginForm from './loginForm/login';
+import RegiterForm from './loginForm/register';
 
 const {Header,Footer,Sider,Content}=Layout;
 const FormItem=Form.Item;
@@ -27,18 +29,19 @@ const TabPane=Tabs.TabPane;
 
 
  class PCIndex extends React.Component{
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
        this.state={
            current:'headline', //导航栏选中
            modalVisible:false, //模块是否隐藏
            action:'login',   //所做的动作
            hasLogined:false,  //是否已登录
            useNickName:'',   //登录名，一般设置为空
-           userid:0
+           userid:0,
        };
 
     };
+
     // componentWillMount(){
     //     if(localStorage.userid!=''){
     //         this.setState({hasLogined:true});
@@ -104,7 +107,7 @@ const TabPane=Tabs.TabPane;
 	};
     render(){
         const {getFieldDecorator,getFieldError,getFieldsError,isFieldTouched}=this.props.form;
-        const {onCancel,visible,onCreat}=this.props;
+       const {onCancel,visible,onCreat}=this.props;
         const userNameError=isFieldTouched('userName')&&getFieldError('userName');
         const passwordError=isFieldTouched('password')&&getFieldError('password');
         const userShow=this.state.hasLogined
@@ -116,9 +119,7 @@ const TabPane=Tabs.TabPane;
         </Menu.Item>:
         <Menu.Item key="register" class="register">
         <Icon type="appstore" />注册/登录
-        </Menu.Item>;
-        
-    
+        </Menu.Item>;   
         return (
             <Router>
                 <Layout>
@@ -134,7 +135,7 @@ const TabPane=Tabs.TabPane;
                     <Col span={16}>
                 
                    
-                    <Menu mode="horizontal"  onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>
+                <Menu mode="horizontal"  onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>
                      <Menu.Item key="headline">
                          <Link to="/"><span><Icon type="appstore" />头条</span></Link>
                      </Menu.Item>
@@ -160,68 +161,18 @@ const TabPane=Tabs.TabPane;
                      <Link to="/fashion"><span><Icon type="appstore" />时尚</span></Link>
                      </Menu.Item>
                      {userShow}
-                    </Menu>
+                </Menu>
               
 
-                    <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible}
+                <Modal title="用户中心" wrapClassName="vertical-center-modal" visible={this.state.modalVisible}
                     onCancel={()=>this.setModalVisible(false) }
                     onOk={()=>this.setModalVisible(false)}
                     okText="关闭"
                     >
-                     <Tabs type="card" onChange={this.callback.bind(this)}>
-                     <TabPane tab="登录" key="1">
-						<Form horizontal onSubmit={this.handleSubmit.bind(this)}>
-							<FormItem label="账户">
-								<Input placeholder="请输入您的账号" {...getFieldDecorator('userName')}/>
-							</FormItem>
-							<FormItem label="密码">
-								<Input type="password" placeholder="请输入您的密码" {...getFieldDecorator('password')}/>
-							</FormItem>
-								<Button type="primary" htmlType="submit">登录</Button>
-						</Form>
-					</TabPane>
-
-                      <TabPane tab="注册" key="2">
-                         <Form layout="vertical" onSubmit={this.handleSubmit.bind(this)}>
-                         <FormItem label="account" 
-                           validateStatus={userNameError ? 'error':''}
-                           help={userNameError||''}
-                         >
-                           {getFieldDecorator('r_userName',{
-                               rules:[{required:true,message:'请输入账号名称'}]
-                           })(
-                               <Input  placeholder="userName" {...getFieldDecorator('r_userName')}/>
-                           )}
-                         </FormItem>
-                         <FormItem  label="password"
-                          validateStatus={passwordError ? 'error' : ''}
-                          help={passwordError || ''}
-                         >
-                         {getFieldDecorator('r_password',{
-                               rules:[{required:true,message:'请输入您的密码'}]
-                           })(
-                               <Input type="password" placeholder="password" />
-                           )}
-                           
-                         </FormItem>
-                         <FormItem label="password_agin" 
-                          validateStatus={passwordError ? 'error' : ''}
-                        help={passwordError || ''}
-
-                         >
-                         {getFieldDecorator('r_confirmPassword',{
-                               rules:[{required:true,message:'请输入您的密码'}]
-                           })(
-                               <Input type="password"  placeholder="confirmPassword"/>
-                           )}
-                         </FormItem>
-                         {/* <Button type="primary" htmlType="submit"  disabled={hasErrors(getFieldsError())}> 注册 </Button> */}
-                         <Button type="primary" htmlType="submit" > 注册 </Button>
-
-                        
-                         </Form>
-                      </TabPane>
-                     </Tabs>
+                       <Tabs type="card" onChange={this.callback.bind(this)}>
+                          <TabPane tab="登录" key="1"><LoginForm/></TabPane>
+                          <TabPane tab="注册" key="2">wwwwww</TabPane>
+                       </Tabs>
                     </Modal>
                  </Col>
                     <Col span={2}></Col>

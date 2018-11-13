@@ -230,3 +230,9 @@ color:#fff;
 .done a:focus{
     color:#fff;
 }
+.list-group-item.active{
+    background-color:#1e833c;
+}
+.list-group{
+    margin-top:20px;
+}

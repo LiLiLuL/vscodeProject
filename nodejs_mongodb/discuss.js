@@ -3,6 +3,11 @@ const express=require('express');
 const app=express();
 let router=require('./router/router');
 let session=require('express-session');
+let bodyParser=require('body-parser');//引入body parser用于解析post的body
+
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended:true}));
+
 app.use(session({
     secret: 'keyboard cat',
     resave:false,
@@ -12,6 +17,15 @@ app.set("view engine","ejs");
 app.use(express.static("./public"));
 app.use("/avatar",express.static("./avatar"));
 
+// app.all('*',(req,res,next)=>{
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Access-Token");
+//     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+//     res.header("X-Powered-By",' 3.2.1')
+//     res.header("Content-Type", "application/json;charset=utf-8");
+//     next();
+// }
+// );
 //路由表
 app.get("/",router.showIndex);
 
@@ -46,6 +60,7 @@ app.get("/mymoments/:user",router.showPersonal);
 app.get("/alluser",router.showAllUser);
 //进入个人中心设置
 app.get("/usercenter",router.showUserCenter);
+
 //退出
 app.get("/exist",router.exist);
 app.listen(4000);

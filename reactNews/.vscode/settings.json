@@ -1,0 +1,10 @@
+{
+
+    "background.style":{
+        "opacity":0.1,
+        "background-position": "center",
+
+    },
+    "background.customImages":["C:/Users/xiaoqing_chen/Downloads/back.jpeg"],
+    "background.useDefault":false,
+}

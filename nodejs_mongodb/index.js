@@ -17,5 +17,12 @@ app.get("/",(req,res)=>{
         client.close();
     })
 })
+app.get("/ddd/:id",(req,res,next)=>{
+    let id=req.params["id"];
+    console.log(id);
+    console.log(6000);
+    res.send("1");
+})
+
 app.listen(3001);
 console.log("the server is running");

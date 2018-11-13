@@ -25,6 +25,7 @@ module.exports={
         ]
 
     },
+    
     module:{
         rules:[
             {
@@ -32,7 +33,7 @@ module.exports={
                 exclude:/node_modules/,
                 loaders:"babel-loader",
                 query:{
-                    presets:['es2015','react']
+                   
                 }
             },{
                 test:/\.css$/,

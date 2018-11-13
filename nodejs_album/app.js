@@ -5,8 +5,6 @@ var app=express();
 var router=require("./controller");
 app.set("view engine","ejs");
 
-
-
 app.use(express.static('./public'));
 app.use(express.static('./upload'));
 //首页
@@ -17,4 +15,4 @@ app.get("/:albumName",router.showAlbum);
 app.use((req,res)=>{
    res.render("err");
 })
-app.listen(3000);
+app.listen(3001);

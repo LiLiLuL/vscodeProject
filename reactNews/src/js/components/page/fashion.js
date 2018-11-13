@@ -6,3 +6,4 @@ export default class Fashion extends React.Component{
         
     }
 }
+ 

@@ -57,8 +57,19 @@ $("#submit").click(()=>{
         }
     });
 });
-$(".delete").click(function(){
-    $.get("/delete?id="+$(this).attr("data-id"),function(result){
 
+//删除操作
+console.log($(".delete").length);
+$(".delete").bind("click",function(){
+    console.log("哈哈哈哈");
+    $.get("/delete?id="+$(this).attr("data-id"),function(result){
+         console.log(result);
     })
 })
+
+function deleteOne(){
+    console.log("哈哈哈哈");
+    $.get("/delete?id="+$(this).attr("data-id"),function(result){
+         console.log(result);
+    })
+}

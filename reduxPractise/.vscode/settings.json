@@ -1,0 +1,12 @@
+{
+    "background.useDefault": false,
+    "background.customImages": [
+        "C:/Users/xiaoqing_chen/Desktop/vscodeProject/back.jpeg"
+    ],
+    "background.style": {
+        "background-repeat": "no-repeat",
+        "background-size": "100%,100%",
+        "opacity":0.2
+
+    }
+}

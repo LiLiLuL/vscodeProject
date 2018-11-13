@@ -50,3 +50,6 @@
 .clear{
     clear:both;
 }
+.delete{
+    z-index: 1000;
+}

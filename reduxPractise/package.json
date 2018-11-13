@@ -1,0 +1,26 @@
+{
+  "name": "reduxpractise",
+  "version": "1.0.0",
+  "description": "the tests of redux&&react",
+  "main": "01.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bulid": "webpack",
+    "server": "webpack-dev-server --open"
+  },
+  "author": "chenxq",
+  "license": "ISC",
+  "dependencies": {
+    "react-redux": "^5.1.0",
+    "redux": "^4.0.1",
+    "redux-devtools": "^3.4.1",
+    "store": "^2.0.12",
+    "webpack": "^4.24.0"
+  },
+  "devDependencies": {
+    "qunit": "^2.8.0",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  }
+}

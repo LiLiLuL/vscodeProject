@@ -18,7 +18,7 @@ class Root extends React.Component{
     
         return (
             <div> 
-                <MediaQuery query='(min-device-width:1224px)'>
+                <MediaQuery query='(min-device-width:600px)'>
                  <Router history={hashHistory}>
                  <div>
                    <Route path="/"　component={PCIndex}> </Route>
@@ -28,7 +28,7 @@ class Root extends React.Component{
                 </Router> 
                   
                 </MediaQuery>
-                <MediaQuery query='(max-device-width:1224px)'> 
+                <MediaQuery query='(max-device-width:600px)'> 
                    <Router history={hashHistory}>
                  <div>
                    <Route path="/"　component={MobileIndex}> </Route>

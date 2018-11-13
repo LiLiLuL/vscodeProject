@@ -57,7 +57,7 @@
           </ul>
         </nav>
       <div class="clear"></div>
-      
+      <p class="delete"  data-id={{=id}}>delete</p>
     </div>
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
@@ -72,7 +72,7 @@
                   <h4 class="list-group-item-heading">{{=name}} </h4>
                   <p class="list-group-item-text">评论：{{=comments}}</p>
                   <p class="date">{{=date}} </p>
-                  <p class="delete" data-id={{=id}}>delete</p>
+                  <p class="delete"  onclick="deleteOne()" data-id={{=id}}>delete1</p>
                 </a>
         </div>
     </script>
