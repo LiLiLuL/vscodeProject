@@ -1,0 +1,38 @@
+
+body{
+    background-image: url('../images/142803ab72bd5b23c1db528fef9a3cc0.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.myback{
+    background: green ! important;
+}
+.loginbox{
+    width:50%;
+    height:300px;
+    margin:auto;
+    border-radius: 5px;
+    box-shadow: 5em;
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-24%;
+    margin-top:-12%;
+    background-image:none;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.loginbox Form{
+   width:40%;
+   margin:0 auto;
+   margin-top:30px;
+}
+.btn{
+    margin-right:6px;
+    margin-left:10px;
+    background-image: url('../images/222.jpg') !important;
+    background-position: left;
+    color: chocolate ! important;
+}

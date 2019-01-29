@@ -7,6 +7,9 @@
                  <li <%if(active=="allmoments"){%> class="active" <%}%> > <a  href="/allmoments">全部说说</a></li>
                  <% if(login){%>
                  <li <%if(active=="personalmoments"){%> class="active" <%}%> > <a  href="/mymoments/<%=username%>">我的说说</a></li>
+                 <li <%if(active=="talkcenter"){%> class="active" <%}%> > <a  href="/talkcenter/<%=username%>">会话中心</a></li>
+                 <li <%if(active=="friendslist"){%> class="active" <%}%> > <a  href="/friendlist/<%=username%>">好友列表</a></li>
+
                  <%}%>
                  <li <%if(active=="allusers"){%> class="active" <%}%> > <a  href="/alluser">全部成员</a></li>
   

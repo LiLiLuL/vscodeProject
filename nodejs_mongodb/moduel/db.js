@@ -132,7 +132,7 @@ exports.find = function (collectionName, json, C, D) {
         cursor.each(function (err, doc) {
             if (err) {
                 callback(err, null);
-                clent.close(); //关闭数据库
+                client.close(); //关闭数据库
                 return;
             }
             if (doc != null) {

@@ -66,7 +66,8 @@ exports.showDoRegister=(req,res,next)=>{
             db.insertOne("discuss",{
                 "username":username,
                 "password":password,
-                "avatar":"default.jpg"
+                "avatar":"default.jpg",
+                "friendslist":[]
             },(err,result)=>{
                 if(err){
                     res.send("-3");
@@ -319,4 +320,114 @@ exports.exist=(req,res,next)=>{
     })
 }
 
+//忘记密码
+exports.showForgetPassword=(req,res,next)=>{
+    res.render("discuss_forgetpassword",{
+        "login":req.session.login=="1"?true:false,    
+        "active":"forgetpassword",
+        "username":req.session.login=="1"?req.session.username:"",
+    })
+}
+//更改密码
+exports.doForgetPassword=(req,res,next)=>{
+    let form=new formidable.IncomingForm();
+    form.parse(req,(err,fields,files)=>{
+        console.log(fields);
+        let username=fields.username;
+        let password=fields.newpassword;
+        let confirmpassword=fields.confirmpassword;
+        if(password===confirmpassword){
+            password=md5(md5(password)+password.substring(0,5)+md5(password));
+            db.find('discuss',{"username":username},(err,result)=>{
+                if(err){
+                    res.send("-3");
+                    return;
+                }
+                if(result.length ==0){
+                    res.send("-1");
+                    return;
+                }
+                db.updateMany("discuss",{"username":username},{
+                    $set:{"password":password},
+                 }, function(err,results) {
+                        res.send("1");
+                    });              
+            })
+        }else{
+            res.send("-4");
+            return;
+        }
+       
+       
+    })
+}
 
+
+//添加好友
+exports.addFriends=(req,res,next)=>{
+    console.log(req.body);
+    let form=new formidable.IncomingForm();
+    let username=req.session.username;
+    form.parse(req,(err,fields,files)=>{
+        if(err){
+            console.log(err);
+            return;
+        }
+        console.log(fields);
+        console.log(username);
+        let friendsusername=fields.friendsusername;
+        db.updateMany('discuss',{"username":username},{
+            $addToSet:{"friendslist":friendsusername}
+        },(err,reult)=>{
+              if(err){
+                  console.log(err);
+                  return;
+              }
+            res.send("1");
+        })
+    })
+}
+
+//好友列表
+exports.showFriendList=(req,res,next)=>{
+    let username=req.params['user'];
+    let arryFriend=[];
+        db.find("discuss",{"username":username},(err,results)=>{
+            let friendlist=results[0].friendslist;
+            if(friendlist.length==0){
+                res.send("-1");
+                return;
+            }
+            for(let i=0;i<friendlist.length;i++){
+                db.find("discuss",{"username":friendlist[i]},(err,result2)=>{
+                     if(err){
+                         res.send("-1");
+                         return;
+                     }
+                    arryFriend=arryFriend.concat(result2);
+                    if(i==friendlist.length-1){
+                        res.render("discuss_friendlist",{
+                            "login":req.session.login=="1"?true:false,
+                            "username":req.session.login=="1"?req.session.username:"",
+                            "user":username,
+                            "active":"friendslist",
+                            "friendlist":arryFriend,
+                        });
+                    }
+                })            
+            }
+         
+        })
+         
+}
+
+//会话中心
+exports.showTalkCenter=(req,res,next)=>{
+    let username=req.params["user"];
+    res.render("discuss_talkcenter",{
+        "login":req.session.login=="1"?true:false,
+        "username":req.session.login=="1"?req.session.username:"",
+        "user":username,
+        "active":"talkcenter"
+    })
+}

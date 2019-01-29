@@ -13,6 +13,7 @@
     <title>部门说说</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/jumbotron.css" rel="stylesheet">
+    <link href="http://at.alicdn.com/t/font_852479_bz4abyxnrh9.css" rel="stylesheet">
 
   </head>
 
@@ -24,9 +25,7 @@
     <div class="jumbotron">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6">
-
-         
+          <div class="col-lg-6"> 
         <h1>Welcome!!</h1>
         <h2>This is a funny website for your department</h2>
         <p>if you want to join the website,you have to sign up OR you have had a acount,you can login directly.</p>
@@ -46,7 +45,7 @@
               <div class="login-button">
               <button  type="button" class="btn btn-success" id="btn-login">Login</button>
               <button  type="button" class="btn btn-default" id="btn-register">Register</button>
-              <p class="forget-password"><a href="#" class="alert-link">forget the password?</a></p>
+              <p class="forget-password"><a href="/forgetpassword" class="alert-link">forget the password?</a></p>
             </div>
               <div class="alert alert-success" role="alert" id="form-input-success">
                    <a href="#" class="alert-link">登录成功,即将跳转至首页</a>
@@ -100,14 +99,20 @@
               <ul class="userlist" id="userlist">
                     <% for(let i=0;i<alluser.length;i++){%>
                         <li class="alluser">
-                            <a href="/mymoments/<%=alluser[i].username%>">
+                            <div class="alluser-left" id="alluser-left" >
                             <p class="alluser-img"><img src="/avatar/<%=alluser[i].avatar%>" /></p>
                             <p class="alluser-name"><%=alluser[i].username%></p>
-                            </a>
+                            </div>
+                            <div class="alluser-right" id="alluser-right">
+                               <a href="/mymoments/<%=alluser[i].username%>" > <p class="add-for-user"><i class="icon iconfont icon-xingzhuanggongnengtubiao-"></i>查看评论</p></a>
+                             <p  id="addfriend" type="button"  class="add-for-user"><i class="icon iconfont icon-jiahao"></i>加为好友</p>
+                            </div>
+                            
                           </li>
                     <%} %>
-                <div class="clear"></div>
+              
               </ul>
+              <div class="clear"></div>
               
            
          </div>
@@ -116,8 +121,6 @@
           </div>
         </div>
         <%}%>
-
-
         <div class="container">
            
         
@@ -129,25 +132,40 @@
       <div class="col-md-4">
         <h2> <img width="40" height="40" src="/avatar/{{=avatar}}" alt=""/>{{=username}}：</h2>
         <p class="show-content">{{=content}} </p>
-        <p>{{=datetime}}</p>
-        <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        <p class="answer">
+          <span>{{=datetime}}</span>
+          <span ><i class="icon iconfont icon-icon"></i></span>
+           <span><i class="icon iconfont icon-dianzan"></i></span>
+        </p>
       </div>
-    </script>
-    <script type="text/template" id="alluser">
-      <li>
-      <div class="usermark">
-          <p  class=""><img src="/avatar/" alt=""/></p>
-
-          <div><span></span>
-          <p> 格言：努力着我该努力的，享受着我该享受的</p>
-        </div>
-       </div>
-      </li>
     </script>
     <script src="js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="js/underscore-min.js"></script>
     <script src="js/discuss/button.js"></script>
+    <script> 
+$(function(){
+  let r=$("div#alluser-right").children();
+    let l=$("div#alluser-left").children();
+      for(let i=0;i<r.length;i++){
+        let id=$(r[i]).attr("id");
+        if(id=="addfriend"){
+          r[i].onclick=function(){
+            let user=l[i].innerHTML;
+            $.post("/addfriends",{
+              "friendsusername":user
+            },result=>{
+               if(result=="1"){
+                 alert("添加朋友成功")
+               }else{
+                 alert("添加朋友失败");
+               }
+            })
+          }
+        }
+      }
+})
+    </script>
     
   </body>
 </html>

@@ -178,13 +178,14 @@ color:#fff;
 }
 .alluser{
     display: flex;
+    justify-content:space-between;
 }
-.alluser a{
+/* .alluser a{
     display: flex;
     width:100%;
     height:100%;
     align-items: center;
-}
+} */
 .alluser a p{
     float: left;
 }
@@ -235,4 +236,65 @@ color:#fff;
 }
 .list-group{
     margin-top:20px;
+}
+
+/* 添加好友的按钮样式 */
+.alluser-left{
+    float: left;
+}
+.alluser-left p{
+    display: inline-block;
+}
+.alluser-right{
+    float:right;
+    width:150px;
+}
+.add-for-user{
+    width: 100px;
+    border-radius: 5px;
+    background: #82bd28;
+    text-align: center;
+    font-weight: 600;
+    color: #0a632e;
+    clear: left;
+}
+
+/* 回复评论和点赞的样式 */
+.answer{
+    float: right;
+}
+
+/* 好友列表的样式 */
+.friendlist{
+    display: flex;
+    flex-wrap:  wrap;
+}
+.friendlist li{
+   margin:5px;
+   height:130px;
+   width:200px;
+   overflow: hidden;
+}
+.friendlist-img{
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+    overflow: hidden;
+    float: left;
+}
+.friendlist-name{
+    font-size: x-large;
+    font-weight: 900;
+    font-style: unset;
+    color: #324c0b;
+    float: left;
+    margin-top: 40px;
+}
+
+
+/* 会话中心页面的样式 */
+#canvas{
+    background:#ccc;
+    border:1px solid #0a632e;
+    margin-top:30px;
 }

@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>会话中心</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/jumbotron.css">
+</head>
+<body>
+    <% include discuss_header.ejs%>
+    <div class="container">
+         <div class="col-lg-4"></div>
+         <div class="col-lg-16">
+            <div class="taikcenter">
+                 这是会话中心页面  
+                <h1>chat room</h1>
+                <p id="user"><%=username%></p>
+                <div>
+                    <ul class="list"></ul>
+                </div>
+                <div class="option">
+                    <input type="text" name="" id="content"/>
+                    <input type="button" value="发言" id="chat"/>
+                </div>
+                <h1>实时绘画</h1>
+                <canvas height="1000px" width="1000px" id="canvas"></canvas>
+            </div> 
+         </div>
+         <div class="col-lg-4"></div>
+    </div>
+   
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/discuss/button.js"></script>
+    <script  type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script  type="text/javascript" >
+        let canvas=document.getElementById("canvas");
+        let ctx=canvas.getContext("2d");
+        let color=["red","blue","pink","green","yellow",""];
+        let mycolor=color[parseInt(Math.random()*color.length)];
+        let socket=io();
+       canvas.onmousedown=function(){
+         canvas.addEventListener("mousemove",handler,true);
+       }
+       canvas.onmouseup=function(){
+           canvas.removeEventListener("mousemove",handler,true)
+       }
+       
+       function handler(e){
+               ctx.beginPath();
+               ctx.arc(e.pageX,e.pageY,10,0,Math.PI*2,true);
+               ctx.fillStyle=mycolor;
+               ctx.fill();
+               socket.emit("draw",{"x":e.pageX,"y":e.pageY,"color":mycolor})
+       }
+       socket.on("answer",function(msg){
+                ctx.beginPath();
+               ctx.arc(msg.x,msg.y,10,0,Math.PI*2,true);
+               ctx.fillStyle=msg.color;
+              // console.log(msg.color);
+               ctx.fill();
+       })
+       $("#content").keydown(function(e){
+            if(e.keyCode==13){
+                socket.emit("talk",{
+                "content":$("#content").val(),
+                "user":$("#user").html()
+            });
+             $(this).val(" ");
+            }
+        })
+        $("#chat").click(function(){
+            socket.emit("talk",{
+                "content":$("#content").val(),
+                "user":$("#user").html()
+            });
+        });
+        socket.on("talk",msg=>{
+            $(".list").prepend("<li><b>"+msg.user+":</b>"+msg.content+"</li>");
+        })
+     </script>
+</body>
+</html>

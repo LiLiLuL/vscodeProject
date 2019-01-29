@@ -4,7 +4,8 @@ const app=express();
 let router=require('./router/router');
 let session=require('express-session');
 let bodyParser=require('body-parser');//引入body parser用于解析post的body
-
+let http=require('http').Server(app);
+let io=require('socket.io')(http);
 // app.use(bodyParser.json());
 // app.use(bodyParser.urlencoded({extended:true}));
 
@@ -56,6 +57,8 @@ app.get("/allcount",router.getAllCount);
 
 //得到个人页面
 app.get("/mymoments/:user",router.showPersonal);
+//得到好友列表页面
+app.get("/friendlist/:user",router.showFriendList);
 //得到所有成员
 app.get("/alluser",router.showAllUser);
 //进入个人中心设置
@@ -63,4 +66,23 @@ app.get("/usercenter",router.showUserCenter);
 
 //退出
 app.get("/exist",router.exist);
-app.listen(4000);
+
+//更改密码
+app.get("/forgetpassword",router.showForgetPassword);
+app.post("/doforgetpassword",router.doForgetPassword);
+
+//添加好友
+app.post("/addfriends",router.addFriends);
+//会话中心页面
+app.get("/talkcenter/:user",router.showTalkCenter);
+io.on("connection",socket=>{
+    socket.on("talk",msg=>{
+        console.log(msg);
+        io.emit("talk",msg);
+    });
+    socket.on("draw",msg=>{
+      //  console.log(msg);
+      io.emit("answer",msg);
+    })
+})
+http.listen(4000);

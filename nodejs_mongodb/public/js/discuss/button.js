@@ -146,4 +146,34 @@ $.get("/allcount",function(result){
     })
 
 })
+
+//更改密码
+$("#btn-check-password").click(function(event){
+    event.preventDefault();
+    $.post("/doforgetpassword",{
+        "username":$("#username").val(),
+        "new-password":$("#new-password").val(),
+        "confirm-password":$("#confirm-new-password").val()
+    },result=>{
+        if(result=="1"){
+            //更改密码成功
+            window.location="/login";
+        }else if(result=="-1"){
+            //注册失败，用户名被占用
+            $("#form-input-wrong").fadeIn();
+        }else if(result=="-3"){
+            //服务器错误
+            alert('服务器错误');
+        }else if(result=="-4"){
+            //两次密码不一致
+            alert("两次密码不一致");
+        }    
+    })
+})
   
+
+
+
+
+
+
